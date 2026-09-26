@@ -1,10 +1,10 @@
 # DeltaRec
 
-**History-efficient sequential recommendation across four backends.**
+**Longer History or the Right History? Candidate-Focal History Compression for Long-Sequence Recommendation**
 
 DeltaRec trains a history selector from teacher-derived CWI targets, then fine-tunes a recommender on selected histories. This project contains the **12 DeltaRec experiments in Table 1**: LinRec, HSTU, FuXi-Linear and BlossomRec on ML-20M, Amazon Books and KuaiRand-1K. Each configuration retains its original selection, grouping, loss and evaluation rules, including the 25% history retention setting and its backend-specific budget floors. Table 2 is outside the current release scope.
 
-**Note: All checkpoints and artifacts will be published after the paper is accepted.**
+*Note: All checkpoints and artifacts will be published after the paper is accepted.*
 
 [Environment Setups](#environment-setups) · [Start Training](#start-training) · [Validation](#validation) · [Results](#results)
 
