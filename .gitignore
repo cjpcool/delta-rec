@@ -1,0 +1,15 @@
+/data/
+/checkpoints/
+/outputs/
+/work/
+/.venv/
+/venv/
+/private_*
+__pycache__/
+*.py[cod]
+*.pt
+*.pth
+*.ckpt
+*.zip
+.env
+.env.*

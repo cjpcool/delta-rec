@@ -1,0 +1,7 @@
+{
+  "absolute_tolerance": 5e-05,
+  "reason": "Half a unit in the fourth decimal printed in Table 1; fixed before remaining full evaluations.",
+  "comparison": "same checkpoint for every metric; all >= target - tolerance, and any > target + tolerance means measured_better",
+  "split": "validation",
+  "hardware_note": "NVIDIA A100; latency is out of scope"
+}

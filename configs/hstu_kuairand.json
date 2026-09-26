@@ -1,0 +1,32 @@
+{
+  "dataset": "kuairand-1k",
+  "seed": 1,
+  "kernel_backend": "fla",
+  "decay_timescale_range": [
+    0.0001,
+    0.01
+  ],
+  "group_count": 22,
+  "retention_ratio": 0.25,
+  "recent_floor": 32,
+  "data_files": {
+    "train": "kuairand-1k/splits/train_slates.csv",
+    "validation": "kuairand-1k/splits/validation_slates.csv",
+    "train_catalog": "kuairand-1k/splits/train_catalog.csv",
+    "full_catalog": "kuairand-1k/splits/full_catalog.csv",
+    "split_manifest": "kuairand-1k/splits/split_manifest.json",
+    "user_features": "kuairand-1k/user_features.csv",
+    "grouping": "kuairand-1k/hstu_grouping.pt",
+    "item_map": "kuairand-1k/item_id_map.csv"
+  },
+  "warmup_lr_multiplier": 0.03,
+  "sparse_lr_multiplier": 0.03,
+  "microbatch": 16,
+  "eval_microbatch": 16,
+  "max_epochs": 100,
+  "selector_epochs": 5,
+  "cwi_samples": 1024,
+  "selector_lr": 0.001,
+  "initializer": "checkpoints/hstu_kuairand_initializer.pt",
+  "teacher": "checkpoints/hstu_kuairand_teacher.pt"
+}

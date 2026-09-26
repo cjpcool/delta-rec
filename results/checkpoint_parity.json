@@ -1,0 +1,116 @@
+[
+  {
+    "experiment_id": "linrec_ml20m",
+    "source_checkpoint_sha256": "5bfe7221876aaa605ffef98a698b3d7c889f742535fc5b5c8456cf3def6ca718",
+    "release_checkpoint_sha256": "0682add5a28c8e06b0f07a559e43be1dc3cfd567a417837b1623d2cdbcc19feb",
+    "all_model_tensors_preserved": true,
+    "prediction_parity": "exact",
+    "scope": "original stage tensors reconstructed in extracted runtime versus portable checkpoint",
+    "fixed_validation_rows": 4,
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "linrec_amazon",
+    "source_checkpoint_sha256": "34c7605cedd74e6e8b4936b24dadc75d73fc31e65869453b54bbf8a09f594a91",
+    "release_checkpoint_sha256": "d04336191ae2c9c869ead03b12514135e65f08902cb1ffdccc9b43f85febedf6",
+    "all_model_tensors_preserved": true,
+    "prediction_parity": "exact",
+    "scope": "original stage tensors reconstructed in extracted runtime versus portable checkpoint",
+    "fixed_validation_rows": 4,
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "linrec_kuairand",
+    "source_checkpoint_sha256": "e902801e82d24cb60b2bb5e55f9a524174dcdb4f93fcb79018d3bfe68261bd8b",
+    "release_checkpoint_sha256": "e0eaa702a4bd01fce40362f48c45f5b673949ca1777e8aaab35f02463705fbd1",
+    "all_model_tensors_preserved": true,
+    "prediction_parity": "exact",
+    "scope": "original stage tensors reconstructed in extracted runtime versus portable checkpoint",
+    "fixed_validation_rows": 4,
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "blossomrec_ml20m",
+    "source_checkpoint_sha256": "5dfb98b6520f0013f6dac3015f804bf8fa36acccb0294c3b1579329eb7f9b137",
+    "release_checkpoint_sha256": "381d6457f860e4f040ca5a623a4153fbf7a17c7d6636f3270de380c7cb8a0645",
+    "all_model_tensors_preserved": true,
+    "prediction_parity": "exact",
+    "scope": "original stage tensors reconstructed in extracted runtime versus portable checkpoint",
+    "fixed_validation_rows": 4,
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "blossomrec_amazon",
+    "source_checkpoint_sha256": "a7d655ce5aa6c6fbd194a75ef02bb2f95efa9757f04aa0ac1147b1219c42f8e9",
+    "release_checkpoint_sha256": "811227939d7230f92b8712bf7c0313b7e7e90f3b4b79e7b6cc05d961dd33df70",
+    "all_model_tensors_preserved": true,
+    "prediction_parity": "exact",
+    "scope": "original stage tensors reconstructed in extracted runtime versus portable checkpoint",
+    "fixed_validation_rows": 4,
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "blossomrec_kuairand",
+    "source_checkpoint_sha256": "174a1f2c6fd77e058f3474d3729d896b8673bdb5c1cc0a9e5d4e6813cae117f0",
+    "release_checkpoint_sha256": "c3621cd657b9a0f87a7486f15e8e45d9c97839c162567ea42765286609d607d0",
+    "all_model_tensors_preserved": true,
+    "prediction_parity": "exact",
+    "scope": "original stage tensors reconstructed in extracted runtime versus portable checkpoint",
+    "fixed_validation_rows": 4,
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "fuxilinear_ml20m",
+    "source_checkpoint_sha256": "9fa90991364bb346c30de9664eace41f7d4c18fbfa24bf44e818f8e695ac6a3a",
+    "release_checkpoint_sha256": "f43f863f6a76e140ca895e6a1ae593bbd8b88f9f242f37a895e1dffa3a52064e",
+    "all_model_tensors_preserved": true,
+    "prediction_parity": "exact",
+    "scope": "original stage tensors reconstructed in extracted runtime versus portable checkpoint",
+    "fixed_validation_rows": 4,
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "fuxilinear_amazon",
+    "source_checkpoint_sha256": "f73002a050e163987f1f619c54a13358e0003a42daec1acc5d20fdb8f0c785ac",
+    "release_checkpoint_sha256": "55fbbcf8ef74188d63701cf82116e051c72557a3ef4060c64fed57402ade9c1c",
+    "all_model_tensors_preserved": true,
+    "prediction_parity": "exact",
+    "scope": "original stage tensors reconstructed in extracted runtime versus portable checkpoint",
+    "fixed_validation_rows": 4,
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "fuxilinear_kuairand",
+    "source_checkpoint_sha256": "2e5afc62b45fd254eaf2da6b5302dee42f77cedc7042c2fcf7ec4fb3a008897b",
+    "release_checkpoint_sha256": "e1ec3b541a158ef733037ca219a41db98def097974cded74d8dfb2bad790831b",
+    "all_model_tensors_preserved": true,
+    "prediction_parity": "exact",
+    "scope": "original stage tensors reconstructed in extracted runtime versus portable checkpoint",
+    "fixed_validation_rows": 4,
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "hstu_amazon",
+    "scope": "original model/selector/teacher/grouping tensors reconstructed versus cleaned portable checkpoint",
+    "fixed_validation_rows": 4,
+    "prediction_parity": "exact",
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "hstu_ml20m",
+    "scope": "original model/selector/teacher/grouping tensors reconstructed versus cleaned portable checkpoint",
+    "fixed_validation_rows": 4,
+    "prediction_parity": "exact",
+    "max_abs": 0.0
+  },
+  {
+    "experiment_id": "hstu_kuairand",
+    "scope": "raw DCP loaded in extracted runtime versus portable tensor reload",
+    "fixed_validation_rows": 1,
+    "prediction_parity": "exact",
+    "max_abs": 0.0,
+    "original_code_comparison_max_abs": 1.1444091796875e-05,
+    "clean_environment_comparison_max_abs": 0.09822463989257812,
+    "clean_environment_equivalence": false
+  }
+]

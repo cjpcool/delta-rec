@@ -1,0 +1,330 @@
+[
+  {
+    "experiment_id": "linrec_ml20m",
+    "config": "configs/linrec_ml20m.json",
+    "config_sha256": "10580bfb091a1c20e43a100731b767607f4bc71fb3e6455ae03b1ddd5e3f2487",
+    "checkpoint": {
+      "path": "checkpoints/linrec_ml20m.pt",
+      "size_bytes": 139365145,
+      "sha256": "0682add5a28c8e06b0f07a559e43be1dc3cfd567a417837b1623d2cdbcc19feb"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 138444,
+    "metrics": {
+      "hr_at_10": 0.24409869694605763,
+      "ndcg_at_10": 0.13469478676839938
+    },
+    "details": {}
+  },
+  {
+    "experiment_id": "linrec_amazon",
+    "config": "configs/linrec_amazon.json",
+    "config_sha256": "3e2a19c585e8f305434492de3e745a38ecff654670e65f2767e65e4729b2a21f",
+    "checkpoint": {
+      "path": "checkpoints/linrec_amazon.pt",
+      "size_bytes": 387447819,
+      "sha256": "d04336191ae2c9c869ead03b12514135e65f08902cb1ffdccc9b43f85febedf6"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 576890,
+    "metrics": {
+      "hr_at_10": 0.055948274367730415,
+      "ndcg_at_10": 0.03425079468503849
+    },
+    "details": {}
+  },
+  {
+    "experiment_id": "linrec_kuairand",
+    "config": "configs/linrec_kuairand.json",
+    "config_sha256": "ada86aca7413b9ee323d88e8737a264c641925cb0664c150b8d331f3df3849c0",
+    "checkpoint": {
+      "path": "checkpoints/linrec_kuairand.pt",
+      "size_bytes": 4898879813,
+      "sha256": "e0eaa702a4bd01fce40362f48c45f5b673949ca1777e8aaab35f02463705fbd1"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 36007,
+    "metrics": {
+      "macro_gauc": 0.525358189872893,
+      "multitask_loss": 0.50864760472275
+    },
+    "details": {}
+  },
+  {
+    "experiment_id": "hstu_ml20m",
+    "config": "configs/hstu_ml20m.json",
+    "config_sha256": "8193b961a7d7127408dacf15d2265fc286ac3e8204791d369c6c4acc6963126c",
+    "checkpoint": {
+      "path": "checkpoints/hstu_ml20m.pt",
+      "size_bytes": 278125840,
+      "sha256": "b9eac211cbbd49acb86980e729841e3776826443ef307f7b1005ef03709e5f3d"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 138444,
+    "metrics": {
+      "hr_at_10": 0.25157464389933837,
+      "ndcg_at_10": 0.1381295665010308
+    },
+    "details": {
+      "candidate_target_coverage": 0.5454190864176129,
+      "forced_injection_requests": 0
+    }
+  },
+  {
+    "experiment_id": "hstu_amazon",
+    "config": "configs/hstu_amazon.json",
+    "config_sha256": "ad951e9f0c2aadfa10ddbad64b808a93ca6fa3f32e3cf337f9d32c5f7bb5f359",
+    "checkpoint": {
+      "path": "checkpoints/hstu_amazon.pt",
+      "size_bytes": 98924159,
+      "sha256": "d00f9e4f84a1fb63fda1f2fb1178784b1a146b9cadf4216df5bbbd31c2baffe0"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 576890,
+    "metrics": {
+      "hr_at_10": 0.04467229454488724,
+      "ndcg_at_10": 0.02419147101006298
+    },
+    "details": {
+      "candidate_target_coverage": 0.12896912756331363,
+      "forced_injection_requests": 0
+    },
+    "configuration_note": "Only sparse training execution settings were added after evaluation; inference operations and checkpoint are unchanged."
+  },
+  {
+    "experiment_id": "hstu_kuairand",
+    "config": "configs/hstu_kuairand.json",
+    "config_sha256": "4a46378ea63f5e1c2d68fa6e2cd86703896345d3c86e15d5a0b29fffc7636433",
+    "checkpoint": {
+      "path": "checkpoints/hstu_kuairand.pt",
+      "size_bytes": 20627005466,
+      "sha256": "008109403b910c4d55eeda2d8d6dca506a02bdd0b1834c97ffb173dc21e36cdc"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 36007,
+    "metrics": {
+      "macro_gauc": 0.5405245691699403,
+      "multitask_loss": 1.3981579079341124
+    },
+    "details": {
+      "task_gauc": {
+        "click": 0.5537853272299575,
+        "comment": 0.5388631252009868,
+        "follow": 0.5504545574245525,
+        "forward": 0.5192624805489958,
+        "hate": 0.5267649584555725,
+        "like": 0.5443417314191372,
+        "long_view": 0.5597326880445096,
+        "profile_enter": 0.5309916850358103
+      },
+      "task_loss": {
+        "click": 0.7370714720273414,
+        "comment": 0.015478592933713812,
+        "follow": 0.004132464142564547,
+        "forward": 0.004394228325589699,
+        "hate": 0.0022831444313442554,
+        "like": 0.05779150244591575,
+        "long_view": 0.4851078892809452,
+        "profile_enter": 0.09189861434669783
+      },
+      "eligible_users": {
+        "click": 944,
+        "comment": 411,
+        "follow": 331,
+        "forward": 293,
+        "hate": 94,
+        "like": 716,
+        "long_view": 942,
+        "profile_enter": 811
+      }
+    }
+  },
+  {
+    "experiment_id": "fuxilinear_ml20m",
+    "config": "configs/fuxilinear_ml20m.json",
+    "config_sha256": "29047ee1fc769b799d9ed233cfdcea745135f0b168393c808e852d77b0eec6c5",
+    "checkpoint": {
+      "path": "checkpoints/fuxilinear_ml20m.pt",
+      "size_bytes": 303808707,
+      "sha256": "f43f863f6a76e140ca895e6a1ae593bbd8b88f9f242f37a895e1dffa3a52064e"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 138444,
+    "metrics": {
+      "hr_at_10": 0.23937476524804252,
+      "ndcg_at_10": 0.128589087087004
+    },
+    "details": {
+      "candidate_target_coverage": 0.5454190864176129,
+      "forced_injection_requests": 0
+    }
+  },
+  {
+    "experiment_id": "fuxilinear_amazon",
+    "config": "configs/fuxilinear_amazon.json",
+    "config_sha256": "19bd324be83609115b869e0a945f09541665214b2946250a5ff107dc5dcd3b5a",
+    "checkpoint": {
+      "path": "checkpoints/fuxilinear_amazon.pt",
+      "size_bytes": 789969691,
+      "sha256": "55fbbcf8ef74188d63701cf82116e051c72557a3ef4060c64fed57402ade9c1c"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 576890,
+    "metrics": {
+      "hr_at_10": 0.043110471667042245,
+      "ndcg_at_10": 0.023794619310385724
+    },
+    "details": {
+      "candidate_target_coverage": 0.12896912756331363,
+      "forced_injection_requests": 0
+    }
+  },
+  {
+    "experiment_id": "fuxilinear_kuairand",
+    "config": "configs/fuxilinear_kuairand.json",
+    "config_sha256": "f62bf55a62e6b353b4da4bbdacd60b8e6bfad69d823c28c75c29e7bacd5cf585",
+    "checkpoint": {
+      "path": "checkpoints/fuxilinear_kuairand.pt",
+      "size_bytes": 4519111277,
+      "sha256": "e1ec3b541a158ef733037ca219a41db98def097974cded74d8dfb2bad790831b"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 36007,
+    "metrics": {
+      "macro_gauc": 0.5359279346280785,
+      "multitask_loss": 0.6163112096478883
+    },
+    "details": {
+      "task_gauc": {
+        "click": 0.5277707086718982,
+        "comment": 0.5292991238543762,
+        "follow": 0.5572657203628419,
+        "forward": 0.4890596014751463,
+        "hate": 0.5516623552157015,
+        "like": 0.5576724031661383,
+        "long_view": 0.538847497651793,
+        "profile_enter": 0.5358460666267328
+      },
+      "task_loss": {
+        "click": 0.22768247307091458,
+        "comment": 0.009436322493446572,
+        "follow": 0.002437082925599515,
+        "forward": 0.0023475494330271545,
+        "hate": 0.0013218643389917072,
+        "like": 0.028171080279658936,
+        "long_view": 0.31584715353860887,
+        "profile_enter": 0.02906768356764096
+      },
+      "eligible_users": {
+        "click": 944,
+        "comment": 411,
+        "follow": 331,
+        "forward": 293,
+        "hate": 94,
+        "like": 716,
+        "long_view": 942,
+        "profile_enter": 811
+      }
+    }
+  },
+  {
+    "experiment_id": "blossomrec_ml20m",
+    "config": "configs/blossomrec_ml20m.json",
+    "config_sha256": "fb804882c42e5db930327ded5a957d74d116058196447706216b36f2a85b2691",
+    "checkpoint": {
+      "path": "checkpoints/blossomrec_ml20m.pt",
+      "size_bytes": 136757641,
+      "sha256": "381d6457f860e4f040ca5a623a4153fbf7a17c7d6636f3270de380c7cb8a0645"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 138444,
+    "metrics": {
+      "hr_at_10": 0.23795903036606858,
+      "ndcg_at_10": 0.12990175367348786
+    },
+    "details": {
+      "candidate_target_coverage": 0.5454190864176129,
+      "forced_injection_requests": 0
+    }
+  },
+  {
+    "experiment_id": "blossomrec_amazon",
+    "config": "configs/blossomrec_amazon.json",
+    "config_sha256": "aaae5df29db12634116b7ed4af24fbe49873190daf8139981a46d80c3d08202f",
+    "checkpoint": {
+      "path": "checkpoints/blossomrec_amazon.pt",
+      "size_bytes": 381050231,
+      "sha256": "811227939d7230f92b8712bf7c0313b7e7e90f3b4b79e7b6cc05d961dd33df70"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 576890,
+    "metrics": {
+      "hr_at_10": 0.04850144741631854,
+      "ndcg_at_10": 0.029241625238553323
+    },
+    "details": {
+      "candidate_target_coverage": 0.12896912756331363,
+      "forced_injection_requests": 0
+    }
+  },
+  {
+    "experiment_id": "blossomrec_kuairand",
+    "config": "configs/blossomrec_kuairand.json",
+    "config_sha256": "6abbac465e59f9136ebca208b1cf50366329a10929fea19076ff4558ac8b090c",
+    "checkpoint": {
+      "path": "checkpoints/blossomrec_kuairand.pt",
+      "size_bytes": 4513653449,
+      "sha256": "c3621cd657b9a0f87a7486f15e8e45d9c97839c162567ea42765286609d607d0"
+    },
+    "split": "validation",
+    "full_split": true,
+    "rows": 36007,
+    "metrics": {
+      "macro_gauc": 0.5365483208921794,
+      "multitask_loss": 0.598926372375497
+    },
+    "details": {
+      "task_gauc": {
+        "click": 0.5202286775403425,
+        "comment": 0.5521036723748354,
+        "follow": 0.564681595160061,
+        "forward": 0.5283221424953448,
+        "hate": 0.509992869112145,
+        "like": 0.5413230871303605,
+        "long_view": 0.5406196066215543,
+        "profile_enter": 0.5351149167027921
+      },
+      "task_loss": {
+        "click": 0.24718453574194335,
+        "comment": 0.005143176285657051,
+        "follow": 0.005216390177095181,
+        "forward": 0.0018822753535068612,
+        "hate": 0.0009330746295721497,
+        "like": 0.07193824731209707,
+        "long_view": 0.15498931258351092,
+        "profile_enter": 0.11163936029211435
+      },
+      "eligible_users": {
+        "click": 944,
+        "comment": 411,
+        "follow": 331,
+        "forward": 293,
+        "hate": 94,
+        "like": 716,
+        "long_view": 942,
+        "profile_enter": 811
+      }
+    }
+  }
+]

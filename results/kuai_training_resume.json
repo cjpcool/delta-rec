@@ -1,0 +1,10 @@
+{
+  "diagnostic_only": true,
+  "real_training_row": 4,
+  "sparse_optimizer_update": true,
+  "loss": 0.00011591464135563001,
+  "checkpoint_save": true,
+  "model_optimizer_step_resume": true,
+  "fixed_input_prediction_exact": true,
+  "scope": "one real sparse training update and original DMP model/optimizer checkpoint restore; not long training"
+}

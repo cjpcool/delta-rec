@@ -1,0 +1,951 @@
+{
+  "scope": "Table 1 DeltaRec only; Table 2 deferred",
+  "review_upload_cleared": false,
+  "absolute_tolerance": 5e-05,
+  "status_rule": "aligned: all absolute deltas <= tolerance; measured_better: all deltas >= -tolerance and at least one > tolerance; otherwise gap",
+  "hardware": "NVIDIA A100-SXM4-80GB",
+  "dependency_file": "requirements.txt",
+  "full_retraining_performed": false,
+  "experiments": [
+    {
+      "experiment_id": "linrec_ml20m",
+      "backend": "linrec",
+      "dataset": "ml-20m",
+      "config": "configs/linrec_ml20m.json",
+      "config_sha256": "10580bfb091a1c20e43a100731b767607f4bc71fb3e6455ae03b1ddd5e3f2487",
+      "checkpoint": {
+        "path": "checkpoints/linrec_ml20m.pt",
+        "size_bytes": 139365145,
+        "sha256": "0682add5a28c8e06b0f07a559e43be1dc3cfd567a417837b1623d2cdbcc19feb"
+      },
+      "teacher_or_initialization_assets": [],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "train": {
+          "path": "data/ml-20m/splits/train_validation_sequences.csv",
+          "sha256": "0569cf3a72ce9acaeece9c5e4e1358ffd7ae3144f22a2f801bbfd7396111c5f9"
+        },
+        "validation": {
+          "path": "data/ml-20m/splits/train_validation_sequences.csv",
+          "sha256": "0569cf3a72ce9acaeece9c5e4e1358ffd7ae3144f22a2f801bbfd7396111c5f9"
+        },
+        "train_catalog": {
+          "path": "data/ml-20m/splits/train_catalog.csv",
+          "sha256": "8b6a579f242dd9ca62803b9d943c5069874264a83d5636a5652ba7fafb7cac5c"
+        },
+        "full_catalog": {
+          "path": "data/ml-20m/splits/full_catalog.csv",
+          "sha256": "31b01c9c4b2eb3c780197bd816ffeecfba4ca6d86ae19187e766325cc3c5f102"
+        },
+        "split_manifest": {
+          "path": "data/ml-20m/splits/split_manifest.json",
+          "sha256": "b2f6015baf3682032d9e747039d48eaa27771599fb8a556ebdf602fad48271ee"
+        },
+        "validation_candidates": {
+          "path": "data/ml-20m/candidates/validation/manifest.json",
+          "sha256": "f2f5b804d9f67c3378896d373e9ca14618b691b2c702221e4dd2b6dc3e5d9494"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 138444,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(ceil(.25*n),min(n,32))",
+        "mandatory_recent_suffix": "min(32,budget)"
+      },
+      "group_count": 4,
+      "candidate_protocol": "frozen top-100 retrieval; history-seen masked; no positive injection",
+      "metrics": "HR@10 and NDCG@10 averaged over all requests, including retrieval misses",
+      "paper_target": {
+        "hr_at_10": 0.2428,
+        "ndcg_at_10": 0.1339
+      },
+      "measured": {
+        "hr_at_10": 0.24409869694605763,
+        "ndcg_at_10": 0.13469478676839938
+      },
+      "delta": {
+        "hr_at_10": 0.001298696946057637,
+        "ndcg_at_10": 0.0007947867683993914
+      },
+      "status": "measured_better",
+      "notes": [
+        "Selected implementation uses native linear-attention KV intervention, not the GDR core."
+      ]
+    },
+    {
+      "experiment_id": "linrec_amazon",
+      "backend": "linrec",
+      "dataset": "amazon-books",
+      "config": "configs/linrec_amazon.json",
+      "config_sha256": "3e2a19c585e8f305434492de3e745a38ecff654670e65f2767e65e4729b2a21f",
+      "checkpoint": {
+        "path": "checkpoints/linrec_amazon.pt",
+        "size_bytes": 387447819,
+        "sha256": "d04336191ae2c9c869ead03b12514135e65f08902cb1ffdccc9b43f85febedf6"
+      },
+      "teacher_or_initialization_assets": [],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "train": {
+          "path": "data/amazon-books/splits/train_validation_sequences.csv",
+          "sha256": "107469ff6684c27168eaedc962d7b2a62f347695aa31184266917f13ad073845"
+        },
+        "validation": {
+          "path": "data/amazon-books/splits/train_validation_sequences.csv",
+          "sha256": "107469ff6684c27168eaedc962d7b2a62f347695aa31184266917f13ad073845"
+        },
+        "train_catalog": {
+          "path": "data/amazon-books/splits/train_catalog.csv",
+          "sha256": "8ecfe563960f93056e8b10409db0cc18a4340b5e9f9bac3ac45925b079b58fc3"
+        },
+        "full_catalog": {
+          "path": "data/amazon-books/splits/full_catalog.csv",
+          "sha256": "dc1819c986028200750d0772c6bca6791f33e8597dfaa439120fb7d25fce4232"
+        },
+        "split_manifest": {
+          "path": "data/amazon-books/splits/split_manifest.json",
+          "sha256": "6537155bd0049b248174cc340417a589507f2ea773fdafe47f11f6a71e80d750"
+        },
+        "validation_candidates": {
+          "path": "data/amazon-books/candidates/validation/manifest.json",
+          "sha256": "837bbe68b88b98106acb6fbdac8ea64b291b6d6f4c4fefd47730c8ccf7c2b350"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 576890,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(ceil(.25*n),min(n,32))",
+        "mandatory_recent_suffix": "min(32,budget)"
+      },
+      "group_count": 4,
+      "candidate_protocol": "frozen top-100 retrieval; history-seen masked; no positive injection",
+      "metrics": "HR@10 and NDCG@10 averaged over all requests, including retrieval misses",
+      "paper_target": {
+        "hr_at_10": 0.0559,
+        "ndcg_at_10": 0.0343
+      },
+      "measured": {
+        "hr_at_10": 0.055948274367730415,
+        "ndcg_at_10": 0.03425079468503849
+      },
+      "delta": {
+        "hr_at_10": 4.827436773041649e-05,
+        "ndcg_at_10": -4.9205314961504876e-05
+      },
+      "status": "aligned",
+      "notes": [
+        "Selected implementation uses native linear-attention KV intervention, not the GDR core."
+      ]
+    },
+    {
+      "experiment_id": "linrec_kuairand",
+      "backend": "linrec",
+      "dataset": "kuairand-1k",
+      "config": "configs/linrec_kuairand.json",
+      "config_sha256": "ada86aca7413b9ee323d88e8737a264c641925cb0664c150b8d331f3df3849c0",
+      "checkpoint": {
+        "path": "checkpoints/linrec_kuairand.pt",
+        "size_bytes": 4898879813,
+        "sha256": "e0eaa702a4bd01fce40362f48c45f5b673949ca1777e8aaab35f02463705fbd1"
+      },
+      "teacher_or_initialization_assets": [],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "train": {
+          "path": "data/kuairand-1k/splits/train_slates.csv",
+          "sha256": "cf6559378af2f7c6ece66d6a64cff3dc51922a1028cbed8efb9952004380c8cb"
+        },
+        "validation": {
+          "path": "data/kuairand-1k/splits/validation_slates.csv",
+          "sha256": "c3a88cd9a1a7826577347eb6a174bf0888df6ca9340a923dc86a4faa9b58461a"
+        },
+        "train_catalog": {
+          "path": "data/kuairand-1k/splits/train_catalog.csv",
+          "sha256": "7def47fc0f373d590ad5130727da7283f4db9ec3a7cbe297ee3f13f876d0c073"
+        },
+        "full_catalog": {
+          "path": "data/kuairand-1k/splits/full_catalog.csv",
+          "sha256": "3f651a4f0df13fb99ba1947d7a2db4c8ecffe8f3f833bd6dee664a18d233f66d"
+        },
+        "split_manifest": {
+          "path": "data/kuairand-1k/splits/split_manifest.json",
+          "sha256": "23a2178f46840fe75a9b804b87fd85dfbfef05e29c4400f5bc574997d6a5f192"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 36007,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(ceil(.25*n),min(n,32))",
+        "mandatory_recent_suffix": 0
+      },
+      "group_count": 22,
+      "candidate_protocol": "32 original exposures per slate; duplicates preserved; eight observed task labels",
+      "metrics": "Per-task user-pooled raw-logit GAUC, then unweighted mean over eight tasks; degenerate users excluded within task",
+      "paper_target": {
+        "macro_gauc": 0.5256
+      },
+      "measured": {
+        "macro_gauc": 0.525358189872893,
+        "multitask_loss": 0.50864760472275
+      },
+      "delta": {
+        "macro_gauc": -0.00024181012710700056
+      },
+      "status": "gap",
+      "notes": [
+        "Selected implementation uses native linear-attention KV intervention, not the GDR core."
+      ]
+    },
+    {
+      "experiment_id": "hstu_ml20m",
+      "backend": "hstu",
+      "dataset": "ml-20m",
+      "config": "configs/hstu_ml20m.json",
+      "config_sha256": "8193b961a7d7127408dacf15d2265fc286ac3e8204791d369c6c4acc6963126c",
+      "checkpoint": {
+        "path": "checkpoints/hstu_ml20m.pt",
+        "size_bytes": 278125840,
+        "sha256": "b9eac211cbbd49acb86980e729841e3776826443ef307f7b1005ef03709e5f3d"
+      },
+      "teacher_or_initialization_assets": [
+        {
+          "path": "checkpoints/hstu_ml20m_initializer.pt",
+          "size_bytes": 141871585,
+          "sha256": "28e4b7f3c2ac04381ab9f2d52f111825d984b27c0202514ae9c9fb86f743244a"
+        },
+        {
+          "path": "checkpoints/hstu_ml20m_teacher01.pt",
+          "size_bytes": 141871439,
+          "sha256": "822ac49261fd4eeb70dd4bc1ddc3d6ad3480489d8a0809c1cc0c4f6d4d424724"
+        },
+        {
+          "path": "checkpoints/hstu_ml20m_teacher02.pt",
+          "size_bytes": 141871439,
+          "sha256": "b6736c785a24a0a2ca4f85b2b1d46f5156486e4ec65b5d57a1972bef2008c890"
+        }
+      ],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "train": {
+          "path": "data/ml-20m/splits/train_validation_sequences.csv",
+          "sha256": "0569cf3a72ce9acaeece9c5e4e1358ffd7ae3144f22a2f801bbfd7396111c5f9"
+        },
+        "validation": {
+          "path": "data/ml-20m/splits/train_validation_sequences.csv",
+          "sha256": "0569cf3a72ce9acaeece9c5e4e1358ffd7ae3144f22a2f801bbfd7396111c5f9"
+        },
+        "train_catalog": {
+          "path": "data/ml-20m/splits/train_catalog.csv",
+          "sha256": "8b6a579f242dd9ca62803b9d943c5069874264a83d5636a5652ba7fafb7cac5c"
+        },
+        "full_catalog": {
+          "path": "data/ml-20m/splits/full_catalog.csv",
+          "sha256": "31b01c9c4b2eb3c780197bd816ffeecfba4ca6d86ae19187e766325cc3c5f102"
+        },
+        "split_manifest": {
+          "path": "data/ml-20m/splits/split_manifest.json",
+          "sha256": "b2f6015baf3682032d9e747039d48eaa27771599fb8a556ebdf602fad48271ee"
+        },
+        "validation_candidates": {
+          "path": "data/ml-20m/candidates/validation/manifest.json",
+          "sha256": "f2f5b804d9f67c3378896d373e9ca14618b691b2c702221e4dd2b6dc3e5d9494"
+        },
+        "item_map": {
+          "path": "data/ml-20m/item_id_map.csv",
+          "sha256": "d18caa572b66f44123cfc1ef477a4da91b1cfd2d7124186b13851609a45fa65f"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 138444,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(ceil(.25*n),min(n,32))",
+        "mandatory_recent_suffix": "min(32,budget)"
+      },
+      "group_count": 4,
+      "candidate_protocol": "frozen top-100 retrieval; history-seen masked; no positive injection",
+      "metrics": "HR@10 and NDCG@10 averaged over all requests, including retrieval misses",
+      "paper_target": {
+        "hr_at_10": 0.2364,
+        "ndcg_at_10": 0.1288
+      },
+      "measured": {
+        "hr_at_10": 0.25157464389933837,
+        "ndcg_at_10": 0.1381295665010308
+      },
+      "delta": {
+        "hr_at_10": 0.01517464389933837,
+        "ndcg_at_10": 0.009329566501030812
+      },
+      "status": "measured_better",
+      "notes": [
+        "Warm-up continues a previously trained full-history initializer; the two short teacher continuations are not from-scratch training."
+      ]
+    },
+    {
+      "experiment_id": "hstu_amazon",
+      "backend": "hstu",
+      "dataset": "amazon-books",
+      "config": "configs/hstu_amazon.json",
+      "config_sha256": "ad951e9f0c2aadfa10ddbad64b808a93ca6fa3f32e3cf337f9d32c5f7bb5f359",
+      "checkpoint": {
+        "path": "checkpoints/hstu_amazon.pt",
+        "size_bytes": 98924159,
+        "sha256": "d00f9e4f84a1fb63fda1f2fb1178784b1a146b9cadf4216df5bbbd31c2baffe0"
+      },
+      "teacher_or_initialization_assets": [
+        {
+          "path": "checkpoints/hstu_amazon_initializer.pt",
+          "size_bytes": 95912110,
+          "sha256": "b118d4aea24b5e497f219fee17fca5b3056cb52341fd5f8be0905b353ff308f6"
+        },
+        {
+          "path": "checkpoints/hstu_amazon_teacher01.pt",
+          "size_bytes": 95924024,
+          "sha256": "6adc8ca4eebbc0f731cd3229fe4d03595b2e58ac5d93fdda2e93640df379498c"
+        }
+      ],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "train": {
+          "path": "data/amazon-books/splits/train_validation_sequences.csv",
+          "sha256": "107469ff6684c27168eaedc962d7b2a62f347695aa31184266917f13ad073845"
+        },
+        "validation": {
+          "path": "data/amazon-books/splits/train_validation_sequences.csv",
+          "sha256": "107469ff6684c27168eaedc962d7b2a62f347695aa31184266917f13ad073845"
+        },
+        "train_catalog": {
+          "path": "data/amazon-books/splits/train_catalog.csv",
+          "sha256": "8ecfe563960f93056e8b10409db0cc18a4340b5e9f9bac3ac45925b079b58fc3"
+        },
+        "full_catalog": {
+          "path": "data/amazon-books/splits/full_catalog.csv",
+          "sha256": "dc1819c986028200750d0772c6bca6791f33e8597dfaa439120fb7d25fce4232"
+        },
+        "split_manifest": {
+          "path": "data/amazon-books/splits/split_manifest.json",
+          "sha256": "6537155bd0049b248174cc340417a589507f2ea773fdafe47f11f6a71e80d750"
+        },
+        "validation_candidates": {
+          "path": "data/amazon-books/candidates/validation/manifest.json",
+          "sha256": "837bbe68b88b98106acb6fbdac8ea64b291b6d6f4c4fefd47730c8ccf7c2b350"
+        },
+        "item_map": {
+          "path": "data/amazon-books/item_id_map.csv",
+          "sha256": "a3caa7540ebc58ecb4088408ca1489b67f006fb2f7575db848d096aa241116de"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 576890,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(ceil(.25*n),min(n,32))",
+        "mandatory_recent_suffix": 0
+      },
+      "group_count": 16,
+      "candidate_protocol": "frozen top-100 retrieval; history-seen masked; no positive injection",
+      "metrics": "HR@10 and NDCG@10 averaged over all requests, including retrieval misses",
+      "paper_target": {
+        "hr_at_10": 0.0537,
+        "ndcg_at_10": 0.0255
+      },
+      "measured": {
+        "hr_at_10": 0.04467229454488724,
+        "ndcg_at_10": 0.02419147101006298
+      },
+      "delta": {
+        "hr_at_10": -0.009027705455112757,
+        "ndcg_at_10": -0.0013085289899370176
+      },
+      "status": "gap",
+      "notes": [
+        "Full validation result does not reproduce the paper target; selector uses G=2, sparse model G=16. Microbatch 1 versus 16 scores/ranks checked on fixed real rows.",
+        "Source checkpoint selection used a 1,024-request validation shard and explicitly disabled a full-headline claim. This release reports 576,890 requests instead; no target alignment is claimed.",
+        "The final source ranker resumed with short/medium/long microbatches 128/64/8 and supervision chunk 32; sparse_execution retains those settings separately from the full-history warm-up settings."
+      ]
+    },
+    {
+      "experiment_id": "hstu_kuairand",
+      "backend": "hstu",
+      "dataset": "kuairand-1k",
+      "config": "configs/hstu_kuairand.json",
+      "config_sha256": "4a46378ea63f5e1c2d68fa6e2cd86703896345d3c86e15d5a0b29fffc7636433",
+      "checkpoint": {
+        "path": "checkpoints/hstu_kuairand.pt",
+        "size_bytes": 20627005466,
+        "sha256": "008109403b910c4d55eeda2d8d6dca506a02bdd0b1834c97ffb173dc21e36cdc"
+      },
+      "teacher_or_initialization_assets": [
+        {
+          "path": "checkpoints/hstu_kuairand_initializer.pt",
+          "size_bytes": 20480046923,
+          "sha256": "7fd9a41981e7904ff29269aa492f88eff97fa44930659ed5827c89cdc4652a95"
+        },
+        {
+          "path": "checkpoints/hstu_kuairand_teacher.pt",
+          "size_bytes": 20550661449,
+          "sha256": "1e817b8e19926d60c5e8ef167d0c0e547337adfb7d80e7a4f987b88081170b14"
+        }
+      ],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "train": {
+          "path": "data/kuairand-1k/splits/train_slates.csv",
+          "sha256": "cf6559378af2f7c6ece66d6a64cff3dc51922a1028cbed8efb9952004380c8cb"
+        },
+        "validation": {
+          "path": "data/kuairand-1k/splits/validation_slates.csv",
+          "sha256": "c3a88cd9a1a7826577347eb6a174bf0888df6ca9340a923dc86a4faa9b58461a"
+        },
+        "train_catalog": {
+          "path": "data/kuairand-1k/splits/train_catalog.csv",
+          "sha256": "7def47fc0f373d590ad5130727da7283f4db9ec3a7cbe297ee3f13f876d0c073"
+        },
+        "full_catalog": {
+          "path": "data/kuairand-1k/splits/full_catalog.csv",
+          "sha256": "3f651a4f0df13fb99ba1947d7a2db4c8ecffe8f3f833bd6dee664a18d233f66d"
+        },
+        "split_manifest": {
+          "path": "data/kuairand-1k/splits/split_manifest.json",
+          "sha256": "23a2178f46840fe75a9b804b87fd85dfbfef05e29c4400f5bc574997d6a5f192"
+        },
+        "user_features": {
+          "path": "data/kuairand-1k/user_features.csv",
+          "sha256": "0909a5f46b34fc888e3789dc3a1dee0e309a78febd6564380741bbe2987425e1"
+        },
+        "grouping": {
+          "path": "data/kuairand-1k/hstu_grouping.pt",
+          "sha256": "79b623a147c58e4b52827f1449d6f204f0bb0a3e36201537cf439ba24441c28f"
+        },
+        "item_map": {
+          "path": "data/kuairand-1k/item_id_map.csv",
+          "sha256": "a364d65c29189b6e4d8c70fccac7af96d47b1fc1f45da7271c5addf53eb3c36a"
+        }
+      },
+      "seed": 1,
+      "split": "validation",
+      "expected_rows": 36007,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(ceil(.25*n),min(n,32))",
+        "mandatory_recent_suffix": "min(32,budget)"
+      },
+      "group_count": 22,
+      "candidate_protocol": "32 original exposures per slate; duplicates preserved; eight observed task labels",
+      "metrics": "Per-task user-pooled raw-logit GAUC, then unweighted mean over eight tasks; degenerate users excluded within task",
+      "paper_target": {
+        "macro_gauc": 0.5419
+      },
+      "measured": {
+        "macro_gauc": 0.5405245691699403,
+        "multitask_loss": 1.3981579079341124
+      },
+      "delta": {
+        "macro_gauc": -0.001375430830059754
+      },
+      "status": "gap",
+      "notes": [
+        "Original source evaluation record: Macro-GAUC 0.5412984771556619. Stock clean environment gives a lower value. Same-original-environment extraction comparison has max absolute logit difference 1.15e-5; clean versus original environment differs by up to 0.098225 on 16 fixed slates. Cause remains unresolved; no equivalence claim for those environments."
+      ]
+    },
+    {
+      "experiment_id": "fuxilinear_ml20m",
+      "backend": "fuxilinear",
+      "dataset": "ml-20m",
+      "config": "configs/fuxilinear_ml20m.json",
+      "config_sha256": "29047ee1fc769b799d9ed233cfdcea745135f0b168393c808e852d77b0eec6c5",
+      "checkpoint": {
+        "path": "checkpoints/fuxilinear_ml20m.pt",
+        "size_bytes": 303808707,
+        "sha256": "f43f863f6a76e140ca895e6a1ae593bbd8b88f9f242f37a895e1dffa3a52064e"
+      },
+      "teacher_or_initialization_assets": [],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "full_catalog": {
+          "path": "data/ml-20m/splits/full_catalog.csv",
+          "sha256": "31b01c9c4b2eb3c780197bd816ffeecfba4ca6d86ae19187e766325cc3c5f102"
+        },
+        "item_id_map": {
+          "path": "data/ml-20m/item_id_map.csv",
+          "sha256": "d18caa572b66f44123cfc1ef477a4da91b1cfd2d7124186b13851609a45fa65f"
+        },
+        "split_manifest": {
+          "path": "data/ml-20m/splits/split_manifest.json",
+          "sha256": "b2f6015baf3682032d9e747039d48eaa27771599fb8a556ebdf602fad48271ee"
+        },
+        "train": {
+          "path": "data/ml-20m/splits/train_validation_sequences.csv",
+          "sha256": "0569cf3a72ce9acaeece9c5e4e1358ffd7ae3144f22a2f801bbfd7396111c5f9"
+        },
+        "train_catalog": {
+          "path": "data/ml-20m/splits/train_catalog.csv",
+          "sha256": "8b6a579f242dd9ca62803b9d943c5069874264a83d5636a5652ba7fafb7cac5c"
+        },
+        "validation": {
+          "path": "data/ml-20m/splits/train_validation_sequences.csv",
+          "sha256": "0569cf3a72ce9acaeece9c5e4e1358ffd7ae3144f22a2f801bbfd7396111c5f9"
+        },
+        "validation_candidates": {
+          "path": "data/ml-20m/candidates/validation/manifest.json",
+          "sha256": "f2f5b804d9f67c3378896d373e9ca14618b691b2c702221e4dd2b6dc3e5d9494"
+        },
+        "grouping": {
+          "path": "data/ml-20m/grouping.pt",
+          "sha256": "08acc487b326dbef691d592303cee606303b0c88402ca8b71e73c2f62f502339"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 138444,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(round_ties_to_even_fp32(.25*n),1) for nonempty history",
+        "mandatory_recent_suffix": "min(32,budget)"
+      },
+      "group_count": 7,
+      "candidate_protocol": "frozen top-100 retrieval; history-seen masked; no positive injection",
+      "metrics": "HR@10 and NDCG@10 averaged over all requests, including retrieval misses",
+      "paper_target": {
+        "hr_at_10": 0.2393,
+        "ndcg_at_10": 0.1286
+      },
+      "measured": {
+        "hr_at_10": 0.23937476524804252,
+        "ndcg_at_10": 0.128589087087004
+      },
+      "delta": {
+        "hr_at_10": 7.476524804250761e-05,
+        "ndcg_at_10": -1.091291299598618e-05
+      },
+      "status": "measured_better",
+      "notes": [
+        "CWI intervenes on input embeddings in the selected implementation."
+      ]
+    },
+    {
+      "experiment_id": "fuxilinear_amazon",
+      "backend": "fuxilinear",
+      "dataset": "amazon-books",
+      "config": "configs/fuxilinear_amazon.json",
+      "config_sha256": "19bd324be83609115b869e0a945f09541665214b2946250a5ff107dc5dcd3b5a",
+      "checkpoint": {
+        "path": "checkpoints/fuxilinear_amazon.pt",
+        "size_bytes": 789969691,
+        "sha256": "55fbbcf8ef74188d63701cf82116e051c72557a3ef4060c64fed57402ade9c1c"
+      },
+      "teacher_or_initialization_assets": [],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "full_catalog": {
+          "path": "data/amazon-books/splits/full_catalog.csv",
+          "sha256": "dc1819c986028200750d0772c6bca6791f33e8597dfaa439120fb7d25fce4232"
+        },
+        "item_id_map": {
+          "path": "data/amazon-books/item_id_map.csv",
+          "sha256": "a3caa7540ebc58ecb4088408ca1489b67f006fb2f7575db848d096aa241116de"
+        },
+        "split_manifest": {
+          "path": "data/amazon-books/splits/split_manifest.json",
+          "sha256": "6537155bd0049b248174cc340417a589507f2ea773fdafe47f11f6a71e80d750"
+        },
+        "train": {
+          "path": "data/amazon-books/splits/train_validation_sequences.csv",
+          "sha256": "107469ff6684c27168eaedc962d7b2a62f347695aa31184266917f13ad073845"
+        },
+        "train_catalog": {
+          "path": "data/amazon-books/splits/train_catalog.csv",
+          "sha256": "8ecfe563960f93056e8b10409db0cc18a4340b5e9f9bac3ac45925b079b58fc3"
+        },
+        "validation": {
+          "path": "data/amazon-books/splits/train_validation_sequences.csv",
+          "sha256": "107469ff6684c27168eaedc962d7b2a62f347695aa31184266917f13ad073845"
+        },
+        "validation_candidates": {
+          "path": "data/amazon-books/candidates/validation/manifest.json",
+          "sha256": "837bbe68b88b98106acb6fbdac8ea64b291b6d6f4c4fefd47730c8ccf7c2b350"
+        },
+        "grouping": {
+          "path": "data/amazon-books/grouping.pt",
+          "sha256": "c7608e8ae2e576141e3f09b0f51912220cf8c2094828b2c25c81c919abdd4cdd"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 576890,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(round_ties_to_even_fp32(.25*n),1) for nonempty history",
+        "mandatory_recent_suffix": "min(32,budget)"
+      },
+      "group_count": 2,
+      "candidate_protocol": "frozen top-100 retrieval; history-seen masked; no positive injection",
+      "metrics": "HR@10 and NDCG@10 averaged over all requests, including retrieval misses",
+      "paper_target": {
+        "hr_at_10": 0.0409,
+        "ndcg_at_10": 0.0228
+      },
+      "measured": {
+        "hr_at_10": 0.043110471667042245,
+        "ndcg_at_10": 0.023794619310385724
+      },
+      "delta": {
+        "hr_at_10": 0.0022104716670422464,
+        "ndcg_at_10": 0.0009946193103857227
+      },
+      "status": "measured_better",
+      "notes": [
+        "CWI intervenes on input embeddings in the selected implementation."
+      ]
+    },
+    {
+      "experiment_id": "fuxilinear_kuairand",
+      "backend": "fuxilinear",
+      "dataset": "kuairand-1k",
+      "config": "configs/fuxilinear_kuairand.json",
+      "config_sha256": "f62bf55a62e6b353b4da4bbdacd60b8e6bfad69d823c28c75c29e7bacd5cf585",
+      "checkpoint": {
+        "path": "checkpoints/fuxilinear_kuairand.pt",
+        "size_bytes": 4519111277,
+        "sha256": "e1ec3b541a158ef733037ca219a41db98def097974cded74d8dfb2bad790831b"
+      },
+      "teacher_or_initialization_assets": [],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "full_catalog": {
+          "path": "data/kuairand-1k/splits/full_catalog.csv",
+          "sha256": "3f651a4f0df13fb99ba1947d7a2db4c8ecffe8f3f833bd6dee664a18d233f66d"
+        },
+        "item_id_map": {
+          "path": "data/kuairand-1k/item_id_map.csv",
+          "sha256": "a364d65c29189b6e4d8c70fccac7af96d47b1fc1f45da7271c5addf53eb3c36a"
+        },
+        "split_manifest": {
+          "path": "data/kuairand-1k/splits/split_manifest.json",
+          "sha256": "23a2178f46840fe75a9b804b87fd85dfbfef05e29c4400f5bc574997d6a5f192"
+        },
+        "train": {
+          "path": "data/kuairand-1k/splits/train_slates.csv",
+          "sha256": "cf6559378af2f7c6ece66d6a64cff3dc51922a1028cbed8efb9952004380c8cb"
+        },
+        "train_catalog": {
+          "path": "data/kuairand-1k/splits/train_catalog.csv",
+          "sha256": "7def47fc0f373d590ad5130727da7283f4db9ec3a7cbe297ee3f13f876d0c073"
+        },
+        "validation": {
+          "path": "data/kuairand-1k/splits/validation_slates.csv",
+          "sha256": "c3a88cd9a1a7826577347eb6a174bf0888df6ca9340a923dc86a4faa9b58461a"
+        },
+        "grouping": {
+          "path": "data/kuairand-1k/grouping.pt",
+          "sha256": "218feec2e038a7108196bd4731386bbc7797b7ade31e31223cdcd27f54352c87"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 36007,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(round_ties_to_even_fp32(.25*n),1) for nonempty history",
+        "mandatory_recent_suffix": "min(32,budget)"
+      },
+      "group_count": 22,
+      "candidate_protocol": "32 original exposures per slate; duplicates preserved; eight observed task labels",
+      "metrics": "Per-task user-pooled raw-logit GAUC, then unweighted mean over eight tasks; degenerate users excluded within task",
+      "paper_target": {
+        "macro_gauc": 0.5361
+      },
+      "measured": {
+        "macro_gauc": 0.5359279346280785,
+        "multitask_loss": 0.6163112096478883
+      },
+      "delta": {
+        "macro_gauc": -0.00017206537192149263
+      },
+      "status": "gap",
+      "notes": [
+        "CWI intervenes on input embeddings in the selected implementation."
+      ]
+    },
+    {
+      "experiment_id": "blossomrec_ml20m",
+      "backend": "blossomrec",
+      "dataset": "ml-20m",
+      "config": "configs/blossomrec_ml20m.json",
+      "config_sha256": "fb804882c42e5db930327ded5a957d74d116058196447706216b36f2a85b2691",
+      "checkpoint": {
+        "path": "checkpoints/blossomrec_ml20m.pt",
+        "size_bytes": 136757641,
+        "sha256": "381d6457f860e4f040ca5a623a4153fbf7a17c7d6636f3270de380c7cb8a0645"
+      },
+      "teacher_or_initialization_assets": [
+        {
+          "path": "checkpoints/blossomrec_ml20m_teacher_01.pt",
+          "size_bytes": 69343035,
+          "sha256": "5e49cfbe361dcbb0e9f5d780d71bf5daa506ef825ba50aada6d1e312d375c6a7"
+        }
+      ],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "full_catalog": {
+          "path": "data/ml-20m/splits/full_catalog.csv",
+          "sha256": "31b01c9c4b2eb3c780197bd816ffeecfba4ca6d86ae19187e766325cc3c5f102"
+        },
+        "item_id_map": {
+          "path": "data/ml-20m/item_id_map.csv",
+          "sha256": "d18caa572b66f44123cfc1ef477a4da91b1cfd2d7124186b13851609a45fa65f"
+        },
+        "split_manifest": {
+          "path": "data/ml-20m/splits/split_manifest.json",
+          "sha256": "b2f6015baf3682032d9e747039d48eaa27771599fb8a556ebdf602fad48271ee"
+        },
+        "train": {
+          "path": "data/ml-20m/splits/train_validation_sequences.csv",
+          "sha256": "0569cf3a72ce9acaeece9c5e4e1358ffd7ae3144f22a2f801bbfd7396111c5f9"
+        },
+        "train_catalog": {
+          "path": "data/ml-20m/splits/train_catalog.csv",
+          "sha256": "8b6a579f242dd9ca62803b9d943c5069874264a83d5636a5652ba7fafb7cac5c"
+        },
+        "validation": {
+          "path": "data/ml-20m/splits/train_validation_sequences.csv",
+          "sha256": "0569cf3a72ce9acaeece9c5e4e1358ffd7ae3144f22a2f801bbfd7396111c5f9"
+        },
+        "validation_candidates": {
+          "path": "data/ml-20m/candidates/validation/manifest.json",
+          "sha256": "f2f5b804d9f67c3378896d373e9ca14618b691b2c702221e4dd2b6dc3e5d9494"
+        },
+        "grouping": {
+          "path": "data/ml-20m/grouping.pt",
+          "sha256": "08acc487b326dbef691d592303cee606303b0c88402ca8b71e73c2f62f502339"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 138444,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(round_ties_to_even_fp32(.25*n),1) for nonempty history",
+        "mandatory_recent_suffix": "min(32,budget)"
+      },
+      "group_count": 7,
+      "candidate_protocol": "frozen top-100 retrieval; history-seen masked; no positive injection",
+      "metrics": "HR@10 and NDCG@10 averaged over all requests, including retrieval misses",
+      "paper_target": {
+        "hr_at_10": 0.238,
+        "ndcg_at_10": 0.1298
+      },
+      "measured": {
+        "hr_at_10": 0.23795903036606858,
+        "ndcg_at_10": 0.12990175367348786
+      },
+      "delta": {
+        "hr_at_10": -4.096963393140918e-05,
+        "ndcg_at_10": 0.0001017536734878588
+      },
+      "status": "measured_better",
+      "notes": []
+    },
+    {
+      "experiment_id": "blossomrec_amazon",
+      "backend": "blossomrec",
+      "dataset": "amazon-books",
+      "config": "configs/blossomrec_amazon.json",
+      "config_sha256": "aaae5df29db12634116b7ed4af24fbe49873190daf8139981a46d80c3d08202f",
+      "checkpoint": {
+        "path": "checkpoints/blossomrec_amazon.pt",
+        "size_bytes": 381050231,
+        "sha256": "811227939d7230f92b8712bf7c0313b7e7e90f3b4b79e7b6cc05d961dd33df70"
+      },
+      "teacher_or_initialization_assets": [
+        {
+          "path": "checkpoints/blossomrec_amazon_teacher_01.pt",
+          "size_bytes": 192437473,
+          "sha256": "958fa8975f618239e9cfb067e6d541ace3f25304bfff5ccace8f6ef90acc9739"
+        },
+        {
+          "path": "checkpoints/blossomrec_amazon_teacher_02.pt",
+          "size_bytes": 192437473,
+          "sha256": "72a0792eace56f52b9a0c55ca7ce94749f3e81aa6fd907808857fc6d0e557209"
+        }
+      ],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "full_catalog": {
+          "path": "data/amazon-books/splits/full_catalog.csv",
+          "sha256": "dc1819c986028200750d0772c6bca6791f33e8597dfaa439120fb7d25fce4232"
+        },
+        "item_id_map": {
+          "path": "data/amazon-books/item_id_map.csv",
+          "sha256": "a3caa7540ebc58ecb4088408ca1489b67f006fb2f7575db848d096aa241116de"
+        },
+        "split_manifest": {
+          "path": "data/amazon-books/splits/split_manifest.json",
+          "sha256": "6537155bd0049b248174cc340417a589507f2ea773fdafe47f11f6a71e80d750"
+        },
+        "train": {
+          "path": "data/amazon-books/splits/train_validation_sequences.csv",
+          "sha256": "107469ff6684c27168eaedc962d7b2a62f347695aa31184266917f13ad073845"
+        },
+        "train_catalog": {
+          "path": "data/amazon-books/splits/train_catalog.csv",
+          "sha256": "8ecfe563960f93056e8b10409db0cc18a4340b5e9f9bac3ac45925b079b58fc3"
+        },
+        "validation": {
+          "path": "data/amazon-books/splits/train_validation_sequences.csv",
+          "sha256": "107469ff6684c27168eaedc962d7b2a62f347695aa31184266917f13ad073845"
+        },
+        "validation_candidates": {
+          "path": "data/amazon-books/candidates/validation/manifest.json",
+          "sha256": "837bbe68b88b98106acb6fbdac8ea64b291b6d6f4c4fefd47730c8ccf7c2b350"
+        },
+        "grouping": {
+          "path": "data/amazon-books/grouping.pt",
+          "sha256": "c7608e8ae2e576141e3f09b0f51912220cf8c2094828b2c25c81c919abdd4cdd"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 576890,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(round_ties_to_even_fp32(.25*n),1) for nonempty history",
+        "mandatory_recent_suffix": "min(32,budget)"
+      },
+      "group_count": 2,
+      "candidate_protocol": "frozen top-100 retrieval; history-seen masked; no positive injection",
+      "metrics": "HR@10 and NDCG@10 averaged over all requests, including retrieval misses",
+      "paper_target": {
+        "hr_at_10": 0.0485,
+        "ndcg_at_10": 0.0292
+      },
+      "measured": {
+        "hr_at_10": 0.04850144741631854,
+        "ndcg_at_10": 0.029241625238553323
+      },
+      "delta": {
+        "hr_at_10": 1.4474163185368427e-06,
+        "ndcg_at_10": 4.1625238553322924e-05
+      },
+      "status": "aligned",
+      "notes": []
+    },
+    {
+      "experiment_id": "blossomrec_kuairand",
+      "backend": "blossomrec",
+      "dataset": "kuairand-1k",
+      "config": "configs/blossomrec_kuairand.json",
+      "config_sha256": "6abbac465e59f9136ebca208b1cf50366329a10929fea19076ff4558ac8b090c",
+      "checkpoint": {
+        "path": "checkpoints/blossomrec_kuairand.pt",
+        "size_bytes": 4513653449,
+        "sha256": "c3621cd657b9a0f87a7486f15e8e45d9c97839c162567ea42765286609d607d0"
+      },
+      "teacher_or_initialization_assets": [
+        {
+          "path": "checkpoints/blossomrec_kuairand_teacher_01.pt",
+          "size_bytes": 2274475477,
+          "sha256": "91ba51f67393ab23bd5d1d80e3a6da15e20cc3e2bebc51fb06dbdaf579c47ca2"
+        },
+        {
+          "path": "checkpoints/blossomrec_kuairand_teacher_02.pt",
+          "size_bytes": 2274475477,
+          "sha256": "87ac216592fc58838c3b99654e0035a49c0aeacb1b8f0d3d0fa905a945f72efe"
+        }
+      ],
+      "selector": "inline in inference checkpoint; trainable CWI stage in entry",
+      "data": {
+        "full_catalog": {
+          "path": "data/kuairand-1k/splits/full_catalog.csv",
+          "sha256": "3f651a4f0df13fb99ba1947d7a2db4c8ecffe8f3f833bd6dee664a18d233f66d"
+        },
+        "item_id_map": {
+          "path": "data/kuairand-1k/item_id_map.csv",
+          "sha256": "a364d65c29189b6e4d8c70fccac7af96d47b1fc1f45da7271c5addf53eb3c36a"
+        },
+        "split_manifest": {
+          "path": "data/kuairand-1k/splits/split_manifest.json",
+          "sha256": "23a2178f46840fe75a9b804b87fd85dfbfef05e29c4400f5bc574997d6a5f192"
+        },
+        "train": {
+          "path": "data/kuairand-1k/splits/train_slates.csv",
+          "sha256": "cf6559378af2f7c6ece66d6a64cff3dc51922a1028cbed8efb9952004380c8cb"
+        },
+        "train_catalog": {
+          "path": "data/kuairand-1k/splits/train_catalog.csv",
+          "sha256": "7def47fc0f373d590ad5130727da7283f4db9ec3a7cbe297ee3f13f876d0c073"
+        },
+        "validation": {
+          "path": "data/kuairand-1k/splits/validation_slates.csv",
+          "sha256": "c3a88cd9a1a7826577347eb6a174bf0888df6ca9340a923dc86a4faa9b58461a"
+        },
+        "grouping": {
+          "path": "data/kuairand-1k/grouping.pt",
+          "sha256": "218feec2e038a7108196bd4731386bbc7797b7ade31e31223cdcd27f54352c87"
+        }
+      },
+      "seed": 0,
+      "split": "validation",
+      "expected_rows": 36007,
+      "history": {
+        "max_length": 1024,
+        "truncation": "most-recent chronological suffix",
+        "budget": "max(round_ties_to_even_fp32(.25*n),1) for nonempty history",
+        "mandatory_recent_suffix": "min(32,budget)"
+      },
+      "group_count": 22,
+      "candidate_protocol": "32 original exposures per slate; duplicates preserved; eight observed task labels",
+      "metrics": "Per-task user-pooled raw-logit GAUC, then unweighted mean over eight tasks; degenerate users excluded within task",
+      "paper_target": {
+        "macro_gauc": 0.5365
+      },
+      "measured": {
+        "macro_gauc": 0.5365483208921794,
+        "multitask_loss": 0.598926372375497
+      },
+      "delta": {
+        "macro_gauc": 4.832089217943203e-05
+      },
+      "status": "aligned",
+      "notes": []
+    }
+  ],
+  "companion_archives": [
+    {
+      "filename": "deltarec_weights.zip",
+      "file_count": 24,
+      "size_bytes": 83725432014,
+      "sha256": "b3b5970d0a958d05e53cb94abd4dbc84b3390adb782dc73b1c092015ddc972c9",
+      "redistribution_cleared": false
+    },
+    {
+      "filename": "deltarec_frozen_assets.zip",
+      "file_count": 708,
+      "size_bytes": 644911660,
+      "sha256": "7b8720b48bea1af076494e0844a7805bccdaf5be6e78f0d893588423053c9563",
+      "redistribution_cleared": false
+    }
+  ],
+  "driver_version": "580.65.06",
+  "final_validation": "results/final_validation.json"
+}

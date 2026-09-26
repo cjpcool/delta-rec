@@ -1,0 +1,13 @@
+{
+  "diagnostic_only": true,
+  "full_size_published_architecture": true,
+  "real_training_data": true,
+  "reused_teacher": true,
+  "warmup_backward_step": true,
+  "cwi_samples": 4,
+  "selector_epochs": 1,
+  "validation_subset_rows": 1024,
+  "sparse_updates": 2,
+  "optimizer_resume_1_to_2": true,
+  "scope": "engineering validation; subset metrics are not Table 1 results"
+}

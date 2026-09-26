@@ -1,0 +1,34 @@
+{
+  "diagnostic_only": true,
+  "torch": "2.9.0+cu126",
+  "results": [
+    {
+      "backend": "linrec",
+      "complete_training_chain": true,
+      "resume": true,
+      "evaluation": true,
+      "diagnostic_only": true
+    },
+    {
+      "backend": "blossomrec",
+      "complete_training_chain": true,
+      "resume": true,
+      "evaluation": true,
+      "diagnostic_only": true
+    },
+    {
+      "backend": "fuxilinear",
+      "complete_training_chain": true,
+      "resume": true,
+      "evaluation": true,
+      "diagnostic_only": true
+    },
+    {
+      "backend": "hstu",
+      "complete_training_chain": true,
+      "resume": true,
+      "evaluation": true,
+      "diagnostic_only": true
+    }
+  ]
+}

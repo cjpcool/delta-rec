@@ -1,0 +1,70 @@
+{
+  "dataset": "ml-20m",
+  "seed": 0,
+  "kernel": "fla",
+  "decay_timescale_range": [
+    0.0001,
+    0.01
+  ],
+  "retention_ratio": 0.25,
+  "recent_floor": 32,
+  "group_count": 4,
+  "selector_validation_groups": 2,
+  "eval_microbatch": 4,
+  "model": {
+    "max_history_length": 1024,
+    "max_output_length": 11,
+    "item_embedding_dim": 256,
+    "dropout_rate": 0.2,
+    "user_embedding_norm": "l2_norm",
+    "item_l2_norm": true,
+    "l2_norm_eps": 1e-06,
+    "architecture": {
+      "num_blocks": 4,
+      "num_heads": 4,
+      "dv": 64,
+      "dqk": 64,
+      "normalization": "rel_bias",
+      "linear_config": "uvqk",
+      "linear_activation": "silu",
+      "linear_dropout_rate": 0.2,
+      "attn_dropout_rate": 0.0,
+      "enable_relative_attention_bias": true,
+      "concat_ua": false
+    }
+  },
+  "data_files": {
+    "train": "ml-20m/splits/train_validation_sequences.csv",
+    "validation": "ml-20m/splits/train_validation_sequences.csv",
+    "train_catalog": "ml-20m/splits/train_catalog.csv",
+    "full_catalog": "ml-20m/splits/full_catalog.csv",
+    "split_manifest": "ml-20m/splits/split_manifest.json",
+    "validation_candidates": "ml-20m/candidates/validation/manifest.json",
+    "item_map": "ml-20m/item_id_map.csv"
+  },
+  "microbatch": 64,
+  "effective_batch": 64,
+  "num_negatives": 128,
+  "temperature": 0.05,
+  "weight_decay": 0.0,
+  "gr_output_length": 10,
+  "main_module_bf16": false,
+  "enable_tf32": true,
+  "learning_rate": 3e-05,
+  "teacher_epochs": [
+    2,
+    2
+  ],
+  "teacher_weights": [
+    0.3333333333333333,
+    0.6666666666666666
+  ],
+  "teacher_checkpoints": [
+    "checkpoints/hstu_ml20m_teacher01.pt",
+    "checkpoints/hstu_ml20m_teacher02.pt"
+  ],
+  "initializer": "checkpoints/hstu_ml20m_initializer.pt",
+  "cwi_samples": 4096,
+  "selector_epochs": 5,
+  "selector_lr": 0.001
+}

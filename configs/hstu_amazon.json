@@ -1,0 +1,76 @@
+{
+  "dataset": "amazon-books",
+  "seed": 0,
+  "kernel": "fla",
+  "decay_timescale_range": [
+    0.0001,
+    0.01
+  ],
+  "retention_ratio": 0.25,
+  "recent_floor": 32,
+  "group_count": 16,
+  "selector_validation_groups": 2,
+  "eval_microbatch": 16,
+  "model": {
+    "max_history_length": 1024,
+    "max_output_length": 11,
+    "item_embedding_dim": 64,
+    "dropout_rate": 0.5,
+    "user_embedding_norm": "l2_norm",
+    "item_l2_norm": true,
+    "l2_norm_eps": 1e-06,
+    "architecture": {
+      "num_blocks": 4,
+      "num_heads": 4,
+      "dv": 16,
+      "dqk": 16,
+      "normalization": "rel_bias",
+      "linear_config": "uvqk",
+      "linear_activation": "silu",
+      "linear_dropout_rate": 0.5,
+      "attn_dropout_rate": 0.0,
+      "enable_relative_attention_bias": true,
+      "concat_ua": false
+    }
+  },
+  "data_files": {
+    "train": "amazon-books/splits/train_validation_sequences.csv",
+    "validation": "amazon-books/splits/train_validation_sequences.csv",
+    "train_catalog": "amazon-books/splits/train_catalog.csv",
+    "full_catalog": "amazon-books/splits/full_catalog.csv",
+    "split_manifest": "amazon-books/splits/split_manifest.json",
+    "validation_candidates": "amazon-books/candidates/validation/manifest.json",
+    "item_map": "amazon-books/item_id_map.csv"
+  },
+  "full_gdr_lr": 0.0001,
+  "ranker_lr": 3e-05,
+  "cwi_count": 4096,
+  "selector_epochs": 50,
+  "selector_lr": 0.0001,
+  "short_microbatch": 16,
+  "medium_microbatch": 8,
+  "long_microbatch": 1,
+  "effective_batch": 128,
+  "ranker_supervision_chunk": 8,
+  "candidate_chunk": 16,
+  "max_epochs": 100,
+  "min_epochs": 5,
+  "early_stopping_patience": 10,
+  "min_delta": 0.0001,
+  "checkpoint_step_interval": 100,
+  "initializer": "checkpoints/hstu_amazon_initializer.pt",
+  "grouping_assets": {
+    "2": "amazon-books/hstu_grouping2.pt",
+    "16": "amazon-books/hstu_grouping16.pt"
+  },
+  "enable_tf32": false,
+  "teacher_checkpoint": "checkpoints/hstu_amazon_teacher01.pt",
+  "sparse_execution": {
+    "short_microbatch": 128,
+    "medium_microbatch": 64,
+    "long_microbatch": 8,
+    "ranker_supervision_chunk": 32,
+    "effective_batch": 128,
+    "checkpoint_step_interval": 5
+  }
+}

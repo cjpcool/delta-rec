@@ -1,0 +1,97 @@
+{
+  "archive_extraction": [
+    {
+      "archive": "deltarec.zip",
+      "files": 234,
+      "uncompressed_bytes": 2584791,
+      "sha256_matches": true,
+      "crc_passed": true,
+      "no_hidden_files_or_symlinks": true
+    },
+    {
+      "archive": "deltarec_weights.zip",
+      "files": 24,
+      "uncompressed_bytes": 83725427142,
+      "sha256_matches": true,
+      "crc_passed": true,
+      "no_hidden_files_or_symlinks": true
+    },
+    {
+      "archive": "deltarec_frozen_assets.zip",
+      "files": 708,
+      "uncompressed_bytes": 9283593475,
+      "sha256_matches": true,
+      "crc_passed": true,
+      "no_hidden_files_or_symlinks": true
+    }
+  ],
+  "clean_environment": true,
+  "fresh_kernel_caches": true,
+  "original_repository_on_import_path": false,
+  "table2_executed": false,
+  "full_retraining_executed": false,
+  "explicit_data_inputs": {
+    "source": "separately regenerated raw-data preprocessing outputs",
+    "files": [
+      "ml-20m/item_id_map.csv",
+      "ml-20m/splits/train_catalog.csv",
+      "ml-20m/splits/full_catalog.csv",
+      "ml-20m/splits/split_manifest.json",
+      "ml-20m/splits/train_validation_sequences.csv",
+      "amazon-books/item_id_map.csv",
+      "amazon-books/splits/train_catalog.csv",
+      "amazon-books/splits/full_catalog.csv",
+      "amazon-books/splits/split_manifest.json",
+      "amazon-books/splits/train_validation_sequences.csv",
+      "kuairand-1k/item_id_map.csv",
+      "kuairand-1k/splits/train_catalog.csv",
+      "kuairand-1k/splits/full_catalog.csv",
+      "kuairand-1k/splits/split_manifest.json",
+      "kuairand-1k/splits/train_slates.csv",
+      "kuairand-1k/splits/validation_slates.csv",
+      "kuairand-1k/user_features.csv"
+    ],
+    "numeric_files_verified_in": "results/preprocessing.json"
+  },
+  "runtime_checks": [
+    {
+      "name": "pip_check",
+      "passed": true,
+      "elapsed_seconds": 3.06
+    },
+    {
+      "name": "imports",
+      "passed": true,
+      "elapsed_seconds": 4.53
+    },
+    {
+      "name": "smoke_all",
+      "passed": true,
+      "elapsed_seconds": 118.85
+    },
+    {
+      "name": "full_linrec_ml20m",
+      "passed": true,
+      "elapsed_seconds": 106.53
+    }
+  ],
+  "tested_source_tree_sha256": "5f0814311aa59f1cb97f2296e5adbb2aff9e41143b2778b538ef3ff04116a39c",
+  "full_split_recheck": {
+    "experiment_id": "linrec_ml20m",
+    "split": "validation",
+    "rows": 138444,
+    "metrics": {
+      "hr_at_10": 0.24409869694605763,
+      "ndcg_at_10": 0.13469478676839938
+    },
+    "difference_from_primary_measurement": {
+      "hr_at_10": 0.0,
+      "ndcg_at_10": 0.0
+    },
+    "tolerance": 5e-05,
+    "passed": true
+  },
+  "runtime_source_matches_final_delivery": true,
+  "scope_note": "Runtime checks ran against the extracted source and both extracted asset ZIPs in a separate venv with fresh kernel caches. Only separately regenerated prepared numeric data were added. This report was added after those checks; executable files, requirements and configurations are unchanged.",
+  "review_upload_cleared": false
+}

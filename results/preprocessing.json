@@ -1,0 +1,89 @@
+{
+  "raw_data_preprocessing_executed": true,
+  "checks": [
+    {
+      "dataset": "ml-20m",
+      "file": "item_id_map.csv",
+      "sha256": "d18caa572b66f44123cfc1ef477a4da91b1cfd2d7124186b13851609a45fa65f",
+      "source_equal": true
+    },
+    {
+      "dataset": "ml-20m",
+      "file": "splits/train_catalog.csv",
+      "sha256": "8b6a579f242dd9ca62803b9d943c5069874264a83d5636a5652ba7fafb7cac5c",
+      "source_equal": true
+    },
+    {
+      "dataset": "ml-20m",
+      "file": "splits/full_catalog.csv",
+      "sha256": "31b01c9c4b2eb3c780197bd816ffeecfba4ca6d86ae19187e766325cc3c5f102",
+      "source_equal": true
+    },
+    {
+      "dataset": "ml-20m",
+      "file": "splits/train_validation_sequences.csv",
+      "sha256": "0569cf3a72ce9acaeece9c5e4e1358ffd7ae3144f22a2f801bbfd7396111c5f9",
+      "source_equal": true
+    },
+    {
+      "dataset": "amazon-books",
+      "file": "item_id_map.csv",
+      "sha256": "a3caa7540ebc58ecb4088408ca1489b67f006fb2f7575db848d096aa241116de",
+      "source_equal": true
+    },
+    {
+      "dataset": "amazon-books",
+      "file": "splits/train_catalog.csv",
+      "sha256": "8ecfe563960f93056e8b10409db0cc18a4340b5e9f9bac3ac45925b079b58fc3",
+      "source_equal": true
+    },
+    {
+      "dataset": "amazon-books",
+      "file": "splits/full_catalog.csv",
+      "sha256": "dc1819c986028200750d0772c6bca6791f33e8597dfaa439120fb7d25fce4232",
+      "source_equal": true
+    },
+    {
+      "dataset": "amazon-books",
+      "file": "splits/train_validation_sequences.csv",
+      "sha256": "107469ff6684c27168eaedc962d7b2a62f347695aa31184266917f13ad073845",
+      "source_equal": true
+    },
+    {
+      "dataset": "kuairand-1k",
+      "file": "item_id_map.csv",
+      "sha256": "a364d65c29189b6e4d8c70fccac7af96d47b1fc1f45da7271c5addf53eb3c36a",
+      "source_equal": true
+    },
+    {
+      "dataset": "kuairand-1k",
+      "file": "splits/train_catalog.csv",
+      "sha256": "7def47fc0f373d590ad5130727da7283f4db9ec3a7cbe297ee3f13f876d0c073",
+      "source_equal": true
+    },
+    {
+      "dataset": "kuairand-1k",
+      "file": "splits/full_catalog.csv",
+      "sha256": "3f651a4f0df13fb99ba1947d7a2db4c8ecffe8f3f833bd6dee664a18d233f66d",
+      "source_equal": true
+    },
+    {
+      "dataset": "kuairand-1k",
+      "file": "splits/train_slates.csv",
+      "sha256": "cf6559378af2f7c6ece66d6a64cff3dc51922a1028cbed8efb9952004380c8cb",
+      "source_equal": true
+    },
+    {
+      "dataset": "kuairand-1k",
+      "file": "splits/validation_slates.csv",
+      "sha256": "c3a88cd9a1a7826577347eb6a174bf0888df6ca9340a923dc86a4faa9b58461a",
+      "source_equal": true
+    },
+    {
+      "dataset": "kuairand-1k",
+      "file": "user_features.csv",
+      "sha256": "0909a5f46b34fc888e3789dc3a1dee0e309a78febd6564380741bbe2987425e1",
+      "source_equal": true
+    }
+  ]
+}

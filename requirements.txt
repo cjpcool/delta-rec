@@ -1,0 +1,11 @@
+--extra-index-url https://download.pytorch.org/whl/cu126
+# Tested with CPython 3.10.19 on Linux, NVIDIA A100, CUDA runtime 12.6.
+torch==2.9.0+cu126
+triton==3.5.0
+numpy==2.2.6
+pandas==2.3.3
+einops==0.8.2
+gin-config==0.5.0
+fla-core==0.5.1
+torchrec==1.4.0+cu126
+fbgemm-gpu==1.4.0+cu126
